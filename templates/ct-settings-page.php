@@ -11,8 +11,9 @@ function ct_settings_page() {
 				<tr valign="top">
 					<th scope="row"><?php _e('Account ID')?></th>
 					<td><input type="text" name="ct_id" value="<?php
-						echo esc_attr( get_option('ct_id') ); ?>" /></td>
+						echo esc_attr( get_option('ct_dfdfid') ); ?>" /></td>
 				</tr>
+
 
 <!--				<tr valign="top">-->
 <!--					<th scope="row">--><?php //_e('API key')?><!--</th>-->

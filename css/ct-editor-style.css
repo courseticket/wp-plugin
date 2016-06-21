@@ -1,10 +1,14 @@
-span.courseticket-button {
+    span.courseticket-button {
     width: 100%;
     height: 160px;
     color: transparent;
     background-color: #aaa;
-    background-image: url("../../../../wp-content/plugins/courseticket/img/button-example.png");
+    background-image: url("../../../../wp-content/plugins/wp-plugin/img/button-example.png");
     background-repeat: no-repeat;
     background-position: center;
     display: block;
+}
+.mce-window .mce-window-head {
+    color: red;
+    background-color: red;
 }

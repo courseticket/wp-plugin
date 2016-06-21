@@ -18,3 +18,4 @@ add_action('plugins_loaded', array('ButtonReplacer', 'get_instance'));
 
 require_once($ctPluginDir . 'includes/class.editor.php');
 add_action('plugins_loaded', array('Editor', 'get_instance'));
+

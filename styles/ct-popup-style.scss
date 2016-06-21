@@ -1,0 +1,71 @@
+/* scaffolding */
+/* ----------- */
+@import "typeahead";
+
+html {
+  overflow-y: scroll;
+  *overflow-x: hidden;
+}
+.mce-container {
+
+  .ct-search-box {
+    top: 15px;
+    left: 10px;
+    position: relative;
+
+  }
+
+  .ct-checkbox {
+    position: absolute;
+    top: 25px;
+    width: 150px;
+    right: 40px;
+
+    .ct-options-text {
+      position: relative;
+      bottom: 5px;
+      font-size: 18px;
+    }
+
+    .ct-Optionlabel-text {
+      left: 10px;
+      display: inline;
+      font-size: 12px;
+    }
+
+  }
+
+  .ct-voucherCodeDiv {
+    position: relative;
+    top: 50px;
+    left: 20px;
+    width: 300px;
+
+    .ct-voucherCode {
+      position: relative;
+      top: 5px;
+      height: 25px;
+
+    }
+    .ct-label-text {
+      left: 0px;
+    }
+
+  }
+
+  .ct-label-text {
+    display: block;
+    font-size: 18px;
+    position: relative;
+    left: 10px;
+    top: 3px;
+  }
+
+}
+
+
+
+
+
+
+
