@@ -18,7 +18,8 @@ class Editor
         add_filter('mce_buttons_2', 'Editor::showStyleSelector');
         add_action('admin_head', 'Editor::addCourseTicketButton');
         add_action( 'admin_enqueue_scripts', 'Editor::load_custom_ct_styles' );
-        add_action('admin_footer', 'Editor::ct_language');
+        add_action('admin_footer', 'Editor::ct_data');
+
     }
 
     function load_custom_ct_styles() {
@@ -70,6 +71,7 @@ class Editor
         if ( get_user_option('rich_editing') == 'true') {
             add_filter("mce_external_plugins", "Editor::add_tinymce_plugin");
             add_filter('mce_buttons', 'Editor::register_ct_button');
+
         }
     }
 
@@ -89,11 +91,12 @@ class Editor
         return $buttons;
     }
 
-    function ct_language()
+    function ct_data()
     {
-     ?>
-        <input id="lang" codetype="hidden" value="<?php echo(ct_get_lang());?>">
-      <?php
+        echo '<span id="data" data-ct-lang="'. ct_get_lang() .'" data-ct-id="'. get_option('ct_id')
+            .'" data-ct-key="'. get_option('api_key') .'"></span> ';
     }
 }
+
+
 
