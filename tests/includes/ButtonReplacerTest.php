@@ -35,12 +35,44 @@ class ButtonReplacerTest extends WP_UnitTestCase
 
     public function testReplace_shouldChangeSpan()
     {
-        $input = '<span class="courseticket-button" title="Book now" data-options="showOrganizer;smallLayout" data-href="https://www.courseticket.com/de/e/316">n</span>';
+        $input = '<span class="courseticket-button" title="Book now" contenteditable="false" data-options="showOrganizer;smallLayout" data-href="https://www.courseticket.com/de/e/316">n</span>';
         $output = '<a class="courseticket-button" href="https://www.courseticket.com/de/e/316" data-options="showOrganizer;smallLayout">Book now</a>';
 
         $this->assertEquals($output, ButtonReplacer::replace($input));
     }
 
+    public function testReplace_shouldChangeSpanHavingContentEditable()
+    {
+        $input = '<span class="courseticket-button" title="Book now" contenteditable="false" data-options="showOrganizer;smallLayout" data-href="https://www.courseticket.com/de/e/316"> </span>';
+        $output = '<a class="courseticket-button" href="https://www.courseticket.com/de/e/316" data-options="showOrganizer;smallLayout">Book now</a>';
+
+        $this->assertEquals($output, ButtonReplacer::replace($input));
+    }
+
+    public function testReplace_shouldChangeSpanHavingContentEditableModificableTitle()
+    {
+        $input = '<span class="courseticket-button" title="Book nowß" contenteditable="false" data-options="showOrganizer;smallLayout" data-href="https://www.courseticket.com/de/e/316"> </span>';
+        $output = '<a class="courseticket-button" href="https://www.courseticket.com/de/e/316" data-options="showOrganizer;smallLayout">Book nowß</a>';
+
+        $this->assertEquals($output, ButtonReplacer::replace($input));
+    }
+
+    public function testReplace_shouldChangeSpanWithToken()
+    {
+        $input = '<span class="courseticket-button" title="Book now" contenteditable="false" data-options="showOrganizer;smallLayout;voucher:fafa" data-href="https://www.courseticket.com/de/e/316/k:b0bda88eb6"> </span>';
+        $output = '<a class="courseticket-button" href="https://www.courseticket.com/de/e/316/k:b0bda88eb6" data-options="showOrganizer;smallLayout;voucher:fafa">Book now</a>';
+
+        $this->assertEquals($output, ButtonReplacer::replace($input));
+    }
+
+    public function testReplace_shouldChangeSpanWithTokenNoOptions()
+    {
+        $input = '<span class="courseticket-button" title="Book now" contenteditable="false" data-options="" data-href="https://www.courseticket.com/de/e/316/k:b0bda88eb6"> </span>';
+        $output = '<a class="courseticket-button" href="https://www.courseticket.com/de/e/316/k:b0bda88eb6">Book now</a>';
+
+        $this->assertEquals($output, ButtonReplacer::replace($input));
+    }
+    
     public function testReplace_shouldChangePlainLink()
     {
         $input = 'https://www.courseticket.com/de/e/316';

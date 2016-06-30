@@ -12,5 +12,6 @@ ct_lang.es = {
     "Show lectures": "Mostrar sesiones",
     "Link to event": "Enlaze al evento",
     "Show discounts": "Mostrar descuentos",
-    "Show title": "Mostrat titulo"
+    "Show title": "Mostrat titulo",
+    "Book now": "Reserva ahora"
 }

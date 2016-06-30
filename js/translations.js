@@ -12,6 +12,9 @@ ct_lang.translation = function() {
             if(this.placeholder) {
                 this.placeholder = ct_lang[lang][this.placeholder];
             }
+            if(this.value == "Book now") {
+                this.value = ct_lang[lang]["Book now"];
+            }
         });
     }
 };

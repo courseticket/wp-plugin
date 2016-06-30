@@ -10,7 +10,7 @@ function ct_get_lang() {
 
 
 //function my_theme_add_editor_styles() {
-//	    add_editor_style( '../../plugins/courseticket/css/ct-editor-style.css' );
+//	    add_editor_style( '../../plugins/courseticket/css/ct-editor-style.scss' );
 //	}
 //	add_action( 'admin_init', 'my_theme_add_editor_styles' );
 
@@ -18,7 +18,7 @@ function ct_get_lang() {
 //    if ( ! empty( $mce_css ) )
 //        $mce_css .= ',';
 //
-//    $mce_css .= plugins_url( 'css/ct-editor-style.css', dirname(__FILE__) );
+//    $mce_css .= plugins_url( 'css/ct-editor-style.scss', dirname(__FILE__) );
 //    return $mce_css;
 //}
 //add_filter( 'mce_css', 'plugin_mce_css' );
