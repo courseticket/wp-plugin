@@ -19,7 +19,6 @@ class Setup
 
     public static function install()
     {
-
         if ( !get_option('overview_page') ) {
             update_option('overview_page', __('Overview'));
         }
@@ -47,7 +46,7 @@ class Setup
 
             update_option('overview_page_id', $the_page_id);
             if ( $the_page_id && ! is_wp_error( $the_page_id ) ){
-                update_post_meta( $the_page_id, '_wp_page_template', 'templates/ct-overview.php' );
+                    update_post_meta( $the_page_id, '_wp_page_template', 'templates/ct-overview.php' );
             }
 
         } else {

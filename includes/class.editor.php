@@ -17,9 +17,8 @@ class Editor
         add_filter('mce_css', 'Editor::addStyles');
         add_filter('mce_buttons_2', 'Editor::showStyleSelector');
         add_action('admin_head', 'Editor::addCourseTicketButton');
-        add_action( 'admin_enqueue_scripts', 'Editor::load_custom_ct_styles' );
+        add_action('admin_enqueue_scripts', 'Editor::load_custom_ct_styles');
         add_action('admin_footer', 'Editor::ct_data');
-
     }
 
     function load_custom_ct_styles() {

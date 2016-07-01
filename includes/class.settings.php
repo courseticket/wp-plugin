@@ -29,5 +29,15 @@ class Settings
             );
         }
 
+        add_filter( 'update_option_overview_page', 'update_page_permalink', 10, 2);
+        function update_page_permalink( $pre, $value)
+        {
+            $pageID = get_option('overview_page_id');
+            $page = get_page($pageID);
+            $page->post_name = $value;
+            $page->post_title = $value;
+            wp_update_post($page);
+
+        }
     }
 }

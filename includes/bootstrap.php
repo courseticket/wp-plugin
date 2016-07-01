@@ -3,8 +3,6 @@ $ctPluginDir = CT__PLUGIN_DIR;
 require_once($ctPluginDir . 'includes/functions.php');
 
 require_once($ctPluginDir . 'includes/class.setup.php');
-register_activation_hook(__FILE__,array('Setup', 'install'));
-register_deactivation_hook( __FILE__, array('Setup', 'remove'));
 add_action( 'wp_enqueue_scripts', array('Setup', 'enqueue_assets' ));
 
 require_once($ctPluginDir . 'includes/class.settings.php');
