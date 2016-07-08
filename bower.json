@@ -1,0 +1,19 @@
+{
+  "name": "courseticket",
+  "version": "0.1",
+  "authors": [
+    "Adrian Perez <adrian@courseticket.com>"
+  ],
+  "description": "The new platform of the leading educational market",
+  "homepage": "https://www.courseticket.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "typeahead": "https://github.com/twitter/typeahead.js.git#~0.11.0"
+  }
+}

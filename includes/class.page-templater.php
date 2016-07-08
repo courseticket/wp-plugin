@@ -83,8 +83,7 @@ class PageTemplater {
         if (!isset($this->templates[$postTemplate])) {
             return $template;
         }
-        $file = plugin_dir_path(__FILE__) . $postTemplate;
-
+        $file = plugin_dir_path(__FILE__) . '../' . $postTemplate;
         if( file_exists( $file ) ) {
             return $file;
         }

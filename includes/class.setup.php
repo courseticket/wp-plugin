@@ -13,13 +13,15 @@ class Setup
 
     public static function enqueue_assets()
     {
-        //wp_enqueue_style( 'ct-app', '//d2bwoxgl208lfj.cloudfront.net/s/prd/css/app.css' );
+        if (get_option('embed_html')) {
+            wp_enqueue_style('ct-app', 'https://d2bwoxgl208lfj.cloudfront.net/s/prd/css/courseticket-widget.css');
+            wp_enqueue_script('ct-btn', plugins_url('js/btn-parse-styles.js', dirname(__FILE__)));
+        }
         wp_enqueue_script( 'ct-widget-script', '//www.courseticket.com/js/courseticket.widget.core.js', array( 'jquery' ), '1.0', true );
     }
 
     public static function install()
     {
-
         if ( !get_option('overview_page') ) {
             update_option('overview_page', __('Overview'));
         }
@@ -47,7 +49,7 @@ class Setup
 
             update_option('overview_page_id', $the_page_id);
             if ( $the_page_id && ! is_wp_error( $the_page_id ) ){
-                update_post_meta( $the_page_id, '_wp_page_template', 'templates/ct-overview.php' );
+                    update_post_meta( $the_page_id, '_wp_page_template', 'templates/ct-overview.php' );
             }
 
         } else {

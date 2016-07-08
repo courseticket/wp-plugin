@@ -1,0 +1,91 @@
+/* scaffolding */
+/* ----------- */
+@import "typeahead";
+
+html {
+  overflow-y: scroll;
+  *overflow-x: hidden;
+}
+.mce-container {
+
+  .ct-search-box {
+    top: 15px;
+    left: 10px;
+    position: relative;
+
+  }
+
+  .ct-checkbox {
+    position: absolute;
+    top: 25px;
+    width: 150px;
+    right: 40px;
+
+    .ct-options-text {
+      position: relative;
+      bottom: 5px;
+      font-size: 18px;
+    }
+
+    .ct-Optionlabel-text {
+      left: 10px;
+      display: inline;
+      font-size: 12px;
+    }
+
+  }
+
+  .ct-voucherCodeDiv {
+    position: relative;
+    top: 52px;
+    left: 15px;
+    width: 250px;
+
+    .ct-voucherCode {
+      position: relative;
+      top: 7px;
+      left: 5px;
+      height: 20px;
+      padding: 0 5px;
+    }
+    .ct-label-text {
+      left: 10px;
+      font-size: 15px;
+    }
+
+  }
+
+  .ct-label-text {
+    display: block;
+    font-size: 18px;
+    position: relative;
+    left: 15px;
+    top: 3px;
+  }
+
+  .ct-button-display {
+    display: block;
+    position: relative;
+    top: 35px;
+    left: 20px;
+
+    .ct-button-display-input {
+
+      height: 20px;
+      padding: 0 5px;
+    }
+  }
+
+}
+
+.wp-editor-container {
+  .rm-button {
+    position: absolute;
+    background-color: #E2DDD5;
+    padding-left: 0px
+  }
+}
+
+
+
+

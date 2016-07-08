@@ -5,6 +5,7 @@ if ( ! $_tests_dir ) {
 	$_tests_dir = dirname( __FILE__ );
 }
 
+var_dump($_tests_dir);
 require_once $_tests_dir . '/WP_UnitTestCase.php';
 
 $_plutin_dir = dirname( dirname( __FILE__ ) );

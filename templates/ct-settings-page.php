@@ -13,17 +13,22 @@ function ct_settings_page() {
 					<td><input type="text" name="ct_id" value="<?php
 						echo esc_attr( get_option('ct_id') ); ?>" /></td>
 				</tr>
-
-<!--				<tr valign="top">-->
-<!--					<th scope="row">--><?php //_e('API key')?><!--</th>-->
-<!--					<td><input type="text" name="api_key" value="--><?php
-//						echo esc_attr( get_option('api_key') ); ?><!--" /></td>-->
-<!--				</tr>-->
+				
+				<tr valign="top">
+					<th scope="row"><?php _e('API key')?></th>
+						<td><input style="width: 400px" type="text" name="api_key" value="<?php
+						echo esc_attr( get_option('api_key') ); ?>" /></td>
+				</tr>
 
 				<tr valign="top">
 					<th scope="row"><?php _e('Overview page name')?></th>
 					<td><input type="text" name="overview_page" value="<?php
 						echo esc_attr( get_option('overview_page') ); ?>" /></td>
+				</tr>
+
+				<tr valign="top">
+					<th scope="row"><?php _e('Embed html: ')?></th>
+					<td><input type="checkbox" name="embed_html" <?php if(get_option('embed_html')) {echo 'checked';} else {echo '';} ?>/></td>
 				</tr>
 			</table>
 
