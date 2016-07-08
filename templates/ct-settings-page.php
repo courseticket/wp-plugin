@@ -25,6 +25,11 @@ function ct_settings_page() {
 					<td><input type="text" name="overview_page" value="<?php
 						echo esc_attr( get_option('overview_page') ); ?>" /></td>
 				</tr>
+
+				<tr valign="top">
+					<th scope="row"><?php _e('Embed html: ')?></th>
+					<td><input type="checkbox" name="embed_html" <?php if(get_option('embed_html')) {echo 'checked';} else {echo '';} ?>/></td>
+				</tr>
 			</table>
 
 			<?php submit_button(); ?>

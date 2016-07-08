@@ -18,6 +18,7 @@ class Settings
             register_setting( 'ct-settings-group', 'ct_id' );
             register_setting( 'ct-settings-group', 'api_key' );
             register_setting( 'ct-settings-group', 'overview_page' );
+            register_setting( 'ct-settings-group', 'embed_html');
         }
 
         require_once( CT__PLUGIN_DIR . 'templates/ct-settings-page.php' );
@@ -37,7 +38,6 @@ class Settings
             $page->post_name = $value;
             $page->post_title = $value;
             wp_update_post($page);
-
         }
     }
 }

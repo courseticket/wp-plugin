@@ -13,7 +13,10 @@ class Setup
 
     public static function enqueue_assets()
     {
-        //wp_enqueue_style( 'ct-app', '//d2bwoxgl208lfj.cloudfront.net/s/prd/css/app.css' );
+        if (get_option('embed_html')) {
+            wp_enqueue_style('ct-app', 'https://d2bwoxgl208lfj.cloudfront.net/s/prd/css/courseticket-widget.css');
+            wp_enqueue_script('ct-btn', plugins_url('js/btn-parse-styles.js', dirname(__FILE__)));
+        }
         wp_enqueue_script( 'ct-widget-script', '//www.courseticket.com/js/courseticket.widget.core.js', array( 'jquery' ), '1.0', true );
     }
 

@@ -26,6 +26,7 @@ class Editor
         wp_enqueue_style( 'custom_ct_css' );
     }
 
+
     public static function addStyles($mce_css)
     {
         if (!empty($mce_css))
