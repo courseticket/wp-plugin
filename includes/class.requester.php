@@ -17,12 +17,11 @@ class Request
     public static function getHtml($url) {
         $response = wp_remote_get( $url);
         $html = $response['body'];
-        
         return self::getBody($html);
     }
     
     public static function getBody($html){
-        $regex = '@[. ]*(<div id="main">[\n -ÿ]*</div>)@im';;
+            $regex = '@[. ]*(<div id="main">[\t\n\r\\p{L} -ÿ]*</div>)@im';;
         preg_match($regex, $html, $body);
 
         return $body[0];

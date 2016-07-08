@@ -29,19 +29,19 @@ class ButtonReplacer
         } else {
             $replace = "ButtonReplacer::get_js_link";
         }
-        
+
         $lastContent = null;
         while ($lastContent != $content) {
             $lastContent = $content;
             $content = preg_replace_callback(self::$regex, $replace, $content);
         }
-
         return $content;
     }
     
     public static function get_js_link($m)
     {
         $dataOptions = null;
+
         if ($m[3]) {
             $dataOptions= '" data-options="'.$m[3];
         }
@@ -57,6 +57,6 @@ class ButtonReplacer
     {
         $url = Request::htmlRequest($array);
         $html = Request::getHtml($url);
-        return $html;
+        return $html."\n";
     }
 }
