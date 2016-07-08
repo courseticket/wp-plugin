@@ -17,6 +17,7 @@ class Request
     public static function getHtml($url) {
         $response = wp_remote_get( $url);
         $html = $response['body'];
+        
         return self::getBody($html);
     }
     

@@ -57,6 +57,7 @@ class ButtonReplacer
     {
         $url = Request::htmlRequest($array);
         $html = Request::getHtml($url);
+        
         return $html."\n";
     }
 }

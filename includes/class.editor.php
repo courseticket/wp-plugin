@@ -60,14 +60,12 @@ class Editor
     function addCourseTicketButton()
     {
         global $typenow;
-        // check user permissions
         if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') ) {
             return;
         }
 
         if( ! in_array( $typenow, array( 'post', 'page' ) ) )
             return;
-        // check if WYSIWYG is enabled
         if ( get_user_option('rich_editing') == 'true') {
             add_filter("mce_external_plugins", "Editor::add_tinymce_plugin");
             add_filter('mce_buttons', 'Editor::register_ct_button');
