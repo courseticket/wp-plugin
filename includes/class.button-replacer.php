@@ -55,8 +55,8 @@ class ButtonReplacer
 
     public static function get_html($array)
     {
-        $url = Request::htmlRequest($array);
-        $html = Request::getHtml($url);
+        $url = Requester::htmlRequest($array);
+        $html = Requester::getHtml($url);
         
         return $html."\n";
     }

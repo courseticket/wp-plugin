@@ -14,12 +14,15 @@ class RequesterTest extends WP_UnitTestCase
             '290');
         $expected = 'https://www.courseticket.com/en/widgets/button/?btn-href=https%3A%2F%2Fwww.courseticket.com%2Fen%2Fe%2F290&btn-referer=blog.ct.com%2Findex%2F32&btn-text=Book+now&btn-options=showOrganizer%3BsmallLayout';
 
-        $this->assertEquals($expected, Request::htmlRequest($input));
+        $this->assertEquals($expected, Requester::htmlRequest($input));
     }
 
     public function testGetHtml() {
+        if (!function_exists('wp_remote_get')) {
+            $this->markTestSkipped('Needs wp_remote_get function to make  http request');
+        }
         $input = 'https://www.courseticket.com/en/widgets/button/?btn-href=https%3A%2F%2Fwww.courseticket.com%2Fen%2Fe%2F290&btn-referer=blog.ct.com%2Findex%2F32&btn-text=Book+now&btn-options=showOrganizer%3BsmallLayout';
-        $string = Request::getHtml($input);
+        $string = Requester::getHtml($input);
         $this->assertStringStartsWith('<div', $string);
         $this->assertStringEndsWith('</div>', $string);
     }
@@ -28,7 +31,7 @@ class RequesterTest extends WP_UnitTestCase
         $input = '<html><div id="main"><div></div></div></html>';
         $expected = '<div id="main"><div></div></div>';
 
-        $this->assertEquals($expected, Request::getBody($input));
+        $this->assertEquals($expected, Requester::getBody($input));
     }
 
 }

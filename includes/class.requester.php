@@ -1,6 +1,6 @@
 <?php
 
-class Request 
+class Requester 
 {
     public static function htmlRequest($m)
     {
