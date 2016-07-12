@@ -13,6 +13,8 @@ Author URI: https://www.courseticket.com/
 */
 
 defined('ABSPATH') or die('No script kiddies please!');
+
+if (!defined('CT__PLUGIN_DIR'))
 define('CT__PLUGIN_DIR', plugin_dir_path( __FILE__ ));
 
 require_once(CT__PLUGIN_DIR . 'includes/class.setup.php');

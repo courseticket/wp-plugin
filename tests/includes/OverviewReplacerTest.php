@@ -7,6 +7,7 @@ class OverviewReplacerTest extends WP_UnitTestCase
     public function setUp()
     {
         update_option('embed_html', '');
+        update_option('ct_id', '24325');
     }
 
     public function testReplace() {

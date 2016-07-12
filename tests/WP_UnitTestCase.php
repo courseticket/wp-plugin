@@ -29,12 +29,17 @@ abstract class WP_UnitTestCase extends PHPUnit_Framework_TestCase
     public function __construct($name = null, $data = array(), $dataName = '')
     {
         $class = substr(get_class($this), 0, strpos(get_class($this), 'Test'));
+        //$this->requireOnce($class);
+        parent::__construct($name, $data, $dataName);
+    }
+
+    private function requireOnce($class)
+    {
         preg_match_all('/((?:^|[A-Z])[a-z]+)/', $class, $matches);
         $fileName = strtolower(implode('-', $matches[0]));
-        $classFile = dirname( __FILE__ ) . '/../includes/class.' . $fileName . '.php';
+        $classFile = dirname(__FILE__) . '/../includes/class.' . $fileName . '.php';
         if (file_exists($classFile)) {
             require_once($classFile);
         }
-        parent::__construct($name, $data, $dataName);
     }
 }
