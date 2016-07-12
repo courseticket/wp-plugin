@@ -14,6 +14,9 @@ add_action('plugins_loaded', array('PageTemplater', 'get_instance'));
 require_once($ctPluginDir . 'includes/class.button-replacer.php');
 add_action('plugins_loaded', array('ButtonReplacer', 'get_instance'));
 
+require_once($ctPluginDir . 'includes/class.overview-replacer.php');
+add_action('plugins_loaded', array('OverviewReplacer', 'get_instance'));
+
 require_once($ctPluginDir . 'includes/class.editor.php');
 add_action('plugins_loaded', array('Editor', 'get_instance'));
 
