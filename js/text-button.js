@@ -3,6 +3,8 @@ var $ = window.jQuery;
 
 ( function() {
 
+    var pluginUrl = '../wp-content/plugins/courseticket';
+    var NAME = 'Courseticket';
     var optionsArray = ['showOrganizer', 'smallLayout', 'showTrainers', 'showLectures', 'linkToEvent', 'showDiscounts', 'showTitle'];
     var checkedArray = [];
     var event;
@@ -34,7 +36,7 @@ var $ = window.jQuery;
     tinymce.PluginManager.add( 'ct_button', function( editor, url ) {
 
         editor.addButton('ct_button', {
-            text: 'Course Ticket',
+            text: NAME,
             icon: false,
             cmd: 'plugin_command'
         });
@@ -42,7 +44,7 @@ var $ = window.jQuery;
         editor.addCommand('plugin_command', function () {
 
             editor.windowManager.open({
-                title: 'Course Ticket Options',
+                title: NAME + ' Options',
                 width: 500,
                 height: 200,
                 inline: 1,
@@ -91,7 +93,7 @@ var $ = window.jQuery;
             });
 
             $.ajax({
-                url: "/wp-content/plugins/wp-plugin/html/ct-window.html"
+                url: pluginUrl + "/html/ct-window.html"
             }).done(function(res) {
                 $('#ct-insert-button-body').html(res);
                 var search = new Bloodhound({
