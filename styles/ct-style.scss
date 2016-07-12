@@ -1,11 +1,8 @@
 /* scaffolding */
 /* ----------- */
 @import "typeahead";
+@import "mce-editor";
 
-html {
-  overflow-y: scroll;
-  *overflow-x: hidden;
-}
 .mce-container {
 
   .ct-search-box {
@@ -82,7 +79,7 @@ html {
   .rm-button {
     position: absolute;
     background-color: #E2DDD5;
-    padding-left: 0px
+    padding-left: 0;
   }
 }
 

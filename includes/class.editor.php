@@ -22,7 +22,7 @@ class Editor
     }
 
     public static function load_custom_ct_styles() {
-        wp_register_style( 'custom_ct_css', plugins_url('css/ct-popup-style.css', dirname(__FILE__)));
+        wp_register_style('custom_ct_css', plugins_url('css/ct-style.css', dirname(__FILE__)));
         wp_enqueue_style( 'custom_ct_css' );
     }
 
@@ -32,7 +32,7 @@ class Editor
         if (!empty($mce_css))
             $mce_css .= ',';
 
-        $mce_css .= plugins_url('css/ct-editor-style.css', dirname(__FILE__));
+        $mce_css .= plugins_url('css/ct-style.css', dirname(__FILE__));
         return $mce_css;
     }
 
