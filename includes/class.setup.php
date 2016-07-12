@@ -20,6 +20,11 @@ class Setup
         wp_enqueue_script( 'ct-widget-script', '//www.courseticket.com/js/courseticket.widget.core.js', array( 'jquery' ), '1.0', true );
     }
 
+    public static function getOverviewText()
+    {
+        return __('This text will be replaced for the overview widget');
+    }
+
     public static function install()
     {
         if ( !get_option('overview_page') ) {
@@ -37,7 +42,7 @@ class Setup
             // Create post object
             $_p = array();
             $_p['post_title'] = $the_page_title;
-            $_p['post_content'] = __('This text will be replaced for the overview widget');
+            $_p['post_content'] = self::getOverviewText();
             $_p['post_status'] = 'publish';
             $_p['post_type'] = 'page';
             $_p['comment_status'] = 'closed';

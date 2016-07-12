@@ -21,7 +21,7 @@ class Editor
         add_action('admin_footer', 'Editor::ct_data');
     }
 
-    function load_custom_ct_styles() {
+    public static function load_custom_ct_styles() {
         wp_register_style( 'custom_ct_css', plugins_url('css/ct-popup-style.css', dirname(__FILE__)));
         wp_enqueue_style( 'custom_ct_css' );
     }
@@ -57,7 +57,7 @@ class Editor
         return $init_array;
     }
 
-    function addCourseTicketButton()
+    public static function addCourseTicketButton()
     {
         global $typenow;
         if ( !current_user_can('edit_posts') && !current_user_can('edit_pages') ) {
@@ -73,7 +73,7 @@ class Editor
         }
     }
 
-    function add_tinymce_plugin($plugin_array)
+    public static function add_tinymce_plugin($plugin_array)
     {
         $plugin_array['ct_button'] = plugins_url( 'js/text-button.js', dirname(__FILE__) );
         $plugin_array['ct_shearchbox'] = plugins_url( 'bower_components/typeahead/dist/typeahead.bundle.js', dirname(__FILE__) );
@@ -83,13 +83,13 @@ class Editor
         return $plugin_array;
     }
 
-    function register_ct_button($buttons)
+    public static function register_ct_button($buttons)
     {
         array_push($buttons, "ct_button");
         return $buttons;
     }
 
-    function ct_data()
+    public static function ct_data()
     {
         echo '<span id="data" data-ct-lang="'. ct_get_lang() .'" data-ct-id="'. get_option('ct_id')
             .'" data-ct-key="'. get_option('api_key') .'"></span> ';
