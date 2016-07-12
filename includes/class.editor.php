@@ -52,7 +52,7 @@ class Editor
                 'wrapper' => true,
             ),
         );
-        $init_array = ['style_formats' => json_encode($style_formats)];
+        $init_array = array('style_formats' => json_encode($style_formats));
 
         return $init_array;
     }
