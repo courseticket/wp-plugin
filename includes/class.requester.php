@@ -14,17 +14,23 @@ class Requester
         return 'https://www.courseticket.com/'.$m[4].'/widgets/button/?'.http_build_query($data);
     }
     
-    public static function getHtml($url) {
-        $response = wp_remote_get( $url);
+    public static function getHtml($url)
+    {
+        $response = wp_remote_get($url);
         $html = $response['body'];
         
         return self::getBody($html);
     }
     
-    public static function getBody($html){
-            $regex = '@[. ]*(<div id="main">[\t\n\r\\p{L} -ÿ]*</div>)@im';;
+    public static function getBody($html)
+    {
+        $regex = '@[. ]*(<div id="main" class="ct-wdt">[\t\n\r\\p{L} -ÿ]*</div>)@im';;
         preg_match($regex, $html, $body);
 
-        return $body[0];
+        if (!isset($body[0])) {
+            update_option('embed_html', '');
+            return __('Plugin outdated');
+        }
+        return str_replace("\n", '', $body[0]);
     }
 }

@@ -17,7 +17,7 @@ class RequesterTest extends WP_UnitTestCase
         $this->assertEquals($expected, Requester::htmlRequest($input));
     }
 
-    public function testGetHtml() {
+    public function testGetHtml_shouldMakeHttpRequestAndTransformResult() {
         if (!function_exists('wp_remote_get')) {
             $this->markTestSkipped('Needs wp_remote_get function to make  http request');
         }
@@ -27,9 +27,16 @@ class RequesterTest extends WP_UnitTestCase
         $this->assertStringEndsWith('</div>', $string);
     }
 
-    public function testGetBody() {
-        $input = '<html><div id="main"><div></div></div></html>';
-        $expected = '<div id="main"><div></div></div>';
+    public function testGetBody_shouldExtractMainDiv() {
+        $input = '<html><div id="main" class="ct-wdt"><div></div></div></html>';
+        $expected = '<div id="main" class="ct-wdt"><div></div></div>';
+
+        $this->assertEquals($expected, Requester::getBody($input));
+    }
+
+    public function testGetBody_shouldStripNewLines() {
+        $input = sprintf('<html><div id="main" class="ct-wdt">'."%s".'<div></div></div></html>', "\n");
+        $expected = '<div id="main" class="ct-wdt"><div></div></div>';
 
         $this->assertEquals($expected, Requester::getBody($input));
     }
